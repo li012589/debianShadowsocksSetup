@@ -81,7 +81,22 @@ sample looks like this:
 Then 
 
 ```
-service shadowsocks-libev restart
+systemctl enable shadowsocks-libev
+systemctl start shadowsocks-libev
+systemctl status shadowsocks-libev
+```
+
+You can verify this by:
+
+```bash
+ps -ef | grep -v grep | grep "server"
+```
+
+You will see two process runing:
+
+```bash
+nobody   27375     1  0 08:36 ?        00:00:00 /usr/bin/ss-server -c /etc/shadowsocks-libev/config.json -u
+nobody   27376 27375  0 08:36 ?        00:00:00 obfs-server
 ```
 
 #### Reference
