@@ -38,7 +38,15 @@ can combined with `nohup`
 nohup ssserver -s 0.0.0.0 -p 443 -k a29rw4pacnj2ahmf -m aes-192-cfb -t 600 &
 ```
 
-If to use obfs, follow the installation instructions from [5]. Bascially if you are not using a sid debian you have to compile it.
+If to use obfs, follow the installation instructions from [5]. Bascially if you are not using a sid debian you have to compile it. 
+
+You can first try:
+
+```bash
+sudo apt install simple-obfs
+```
+
+If this doesn't work, try:
 
 ```bash
 sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake
@@ -97,6 +105,12 @@ You will see two process runing:
 ```bash
 nobody   27375     1  0 08:36 ?        00:00:00 /usr/bin/ss-server -c /etc/shadowsocks-libev/config.json -u
 nobody   27376 27375  0 08:36 ?        00:00:00 obfs-server
+```
+
+Also you can apply [Google BBR](https://github.com/google/bbr) mod to accelate connection speed by
+
+```bash
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 ```
 
 #### Reference
