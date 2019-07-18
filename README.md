@@ -66,15 +66,15 @@ setcap cap_net_bind_service+ep /usr/local/bin/obfs-server # your installation pa
 
 To run as deamon, first edit configuration file:
 
-```
+```bash
 emacs /etc/shadowsocks-libev/config.json
 ```
 
 sample looks like this:
 
-```
+```json
 {
-    "server":["::0","0.0.0.0"],
+    "server":"::",
     "server_port":443,
     "password":"your_pass_word",
     "timeout":600,
@@ -88,7 +88,7 @@ sample looks like this:
 
 Then 
 
-```
+```bash
 systemctl enable shadowsocks-libev
 systemctl start shadowsocks-libev
 systemctl status shadowsocks-libev
